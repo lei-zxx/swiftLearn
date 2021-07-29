@@ -27,6 +27,7 @@
 		DD658CC826A5C6DB00159F6B /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD658CC726A5C6DA00159F6B /* BaseViewController.swift */; };
 		DD658CD026A5CEA200159F6B /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD658CCF26A5CEA000159F6B /* MainViewController.swift */; };
 		DD7D2A3326B2F7E1009F562B /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = DD7D2A3226B2F7E1009F562B /* README.md */; };
+		DD7D2A3626B30A7E009F562B /* WebViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7D2A3526B30A7E009F562B /* WebViewViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,7 @@
 		DD658CC726A5C6DA00159F6B /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		DD658CCF26A5CEA000159F6B /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		DD7D2A3226B2F7E1009F562B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
+		DD7D2A3526B30A7E009F562B /* WebViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +167,7 @@
 		DD658C4426A2AE6700159F6B /* swiftDemo */ = {
 			isa = PBXGroup;
 			children = (
+				DD7D2A3426B30A4A009F562B /* WebView */,
 				DD7D2A3226B2F7E1009F562B /* README.md */,
 				DD658CC526A5C6B300159F6B /* Base */,
 				DD658C9826A2B58B00159F6B /* Message */,
@@ -361,6 +364,14 @@
 				DD658CC726A5C6DA00159F6B /* BaseViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		DD7D2A3426B30A4A009F562B /* WebView */ = {
+			isa = PBXGroup;
+			children = (
+				DD7D2A3526B30A7E009F562B /* WebViewViewController.swift */,
+			);
+			path = WebView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -630,6 +641,7 @@
 				DD658C9D26A2B5FF00159F6B /* HomeViewController.swift in Sources */,
 				DD658CB326A2B6D200159F6B /* FindViewController.swift in Sources */,
 				DD658CBB26A2B6E500159F6B /* MessageViewController.swift in Sources */,
+				DD7D2A3626B30A7E009F562B /* WebViewViewController.swift in Sources */,
 				DD658CD026A5CEA200159F6B /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

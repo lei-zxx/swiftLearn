@@ -11,9 +11,12 @@ target 'swiftDemo' do
   pod 'RxCocoa', '~> 5'
   
   pod 'NVActivityIndicatorView'
-  pod 'SnapKit', '~> 5.0.0'
+  pod 'SnapKit', '~> 5.0.0' #加载网络图片
   pod 'RxSwift', '~> 5'
   pod 'RAMAnimatedTabBarController'
+  pod 'DGElasticPullToRefresh' #下拉控件
+  pod 'Hue' #颜色
+
   # Pods for swiftDemo
 
   target 'swiftDemoTests' do

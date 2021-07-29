@@ -27,6 +27,13 @@ class HomeViewController: BaseViewController, UITableViewDelegate, UITableViewDa
         return 110
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let newsModel:NewsInfoModel = listArray[indexPath.row] as! NewsInfoModel
+        let webVC:WebViewViewController = WebViewViewController()
+        webVC.webUrl = newsModel.path
+        self.navigationController?.pushViewController(webVC, animated: true)
+    }
+    
     var listTableView : UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
