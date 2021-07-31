@@ -23,6 +23,8 @@ class NewsTableViewCell: UITableViewCell {
     }
     func createUI() -> Void {
         pictureImageView = UIImageView()
+        pictureImageView.layer.cornerRadius = 5
+        pictureImageView.layer.masksToBounds = true
         titleLabel = UILabel()
         titleLabel.font.withSize(14)
         titleLabel.numberOfLines = 0

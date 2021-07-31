@@ -19,6 +19,9 @@
   pod 'SnapKit', '~> 5.0.0'
   pod 'RxSwift', '~> 5'
   pod 'RAMAnimatedTabBarController'
+  pod "ESPullToRefresh"
+  pod 'Hue' #颜色
+
 ```
 4. 立项目的
 - [x] 实战学习swift

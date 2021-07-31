@@ -9,9 +9,14 @@ import UIKit
 import SnapKit
 import Alamofire
 import SwiftyJSON
+import ESPullToRefresh
 
 class HomeViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
     var listArray:NSMutableArray!
+    var count:NSInteger!
+    var page:NSInteger!
+    var isPull:Bool!
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return listArray.count
     }
@@ -37,8 +42,11 @@ class HomeViewController: BaseViewController, UITableViewDelegate, UITableViewDa
     var listTableView : UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        page = 1
+        count = 10
+        isPull = true
         createUI()
-        requestData()
+        requestData(isPull: true)
         // Do any additional setup after loading the view.
     }
     
@@ -51,11 +59,29 @@ class HomeViewController: BaseViewController, UITableViewDelegate, UITableViewDa
         listTableView.snp.makeConstraints { (make) -> Void in
             make.left.top.right.bottom.equalTo(0)
         }
+        listTableView.es.addPullToRefresh {
+            [unowned self] in
+            page = 1
+            requestData(isPull: true)
+        }
+        
+        listTableView.es.addInfiniteScrolling {
+            [unowned self] in
+            page+=1
+            requestData(isPull: false)
+            listTableView.es.stopLoadingMore()
+                /// 通过es_noticeNoMoreData()设置footer暂无数据状态
+            listTableView.es.noticeNoMoreData()
+        }
     }
    
-    func requestData() -> Void {
+    func requestData(isPull:Bool) -> Void {
         listArray = NSMutableArray()
-        AF.request("https://api.apiopen.top/getWangYiNews").responseJSON{ [self] response in
+        let formatUrl:String = String(format: "https://api.apiopen.top/getWangYiNews?page=%ld&count=%ld", arguments: [page,count])
+        if isPull {
+            listArray .removeAllObjects()
+        }
+        AF.request(formatUrl).responseJSON{ [self] response in
 //            debugPrint("Response: \(response)")
             switch response.result {
                         case .success:
@@ -66,12 +92,18 @@ class HomeViewController: BaseViewController, UITableViewDelegate, UITableViewDa
                                let newsModel = NewsInfoModel(jsonData: subJson)
                                 listArray.add(newsModel)
                             }
+                            endRefresh()
                             listTableView.reloadData()
                         case .failure:
+                            endRefresh()
                             print("failure")
                         }
         }
     }
 
+    func endRefresh() -> Void {
+        listTableView.es.stopPullToRefresh()
+        listTableView.es.stopPullToRefresh(ignoreDate: true, ignoreFooter: true)
+    }
 }
 
