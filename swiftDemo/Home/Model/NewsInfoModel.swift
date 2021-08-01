@@ -19,5 +19,13 @@ struct NewsInfoModel {
         title = jsonData["title"].stringValue
         passtime = jsonData["passtime"].stringValue
     }
+}
 
+struct PhotoInfoModel {
+    var time: String?
+    var img: String?
+    init(jsonData:JSON) {
+        time = jsonData["time"].stringValue
+        img = jsonData["img"].stringValue
+    }
 }

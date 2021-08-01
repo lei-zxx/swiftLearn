@@ -1,109 +1,98 @@
 //
-//  HomeViewController.swift
+//  SinaNewsViewController.swift
 //  swiftDemo
 //
-//  Created by Mr.Zhang on 2021/7/17.
+//  Created by Mr.Zhang on 2021/8/1.
 //
 
 import UIKit
+import JXSegmentedView
 import SnapKit
-import Alamofire
-import SwiftyJSON
-import ESPullToRefresh
+class HomeViewController: UIViewController {
+    var segmentedDataSource: JXSegmentedTitleDataSource!
+    var segmentedView: JXSegmentedView!
+    var listContainerView: JXSegmentedListContainerView!
 
-class HomeViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
-    var listArray:NSMutableArray!
-    var count:NSInteger!
-    var page:NSInteger!
-    var isPull:Bool!
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return listArray.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell:NewsTableViewCell = NewsTableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "newCell")
-        let newsModel:NewsInfoModel = listArray[indexPath.row] as! NewsInfoModel
-        cell.setModel(model: newsModel)
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 110
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let newsModel:NewsInfoModel = listArray[indexPath.row] as! NewsInfoModel
-        let webVC:WebViewViewController = WebViewViewController()
-        webVC.webUrl = newsModel.path
-        self.navigationController?.pushViewController(webVC, animated: true)
-    }
-    
-    var listTableView : UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        page = 1
-        count = 10
-        isPull = true
-        createUI()
-        requestData(isPull: true)
-        // Do any additional setup after loading the view.
-    }
-    
-    func createUI() -> Void {
-        self.title = "新闻"
-        listTableView = UITableView()
-        listTableView.delegate = self
-        listTableView.dataSource = self
-        view.addSubview(listTableView)
-        listTableView.snp.makeConstraints { (make) -> Void in
-            make.left.top.right.bottom.equalTo(0)
+
+        view.backgroundColor = .white
+        //直接隐藏bar
+        navigationController?.setNavigationBarHidden(true, animated: false)
+
+        //1、初始化JXSegmentedView
+        segmentedView = JXSegmentedView()
+
+        //2、配置数据源
+        //segmentedViewDataSource一定要通过属性强持有！！！！！！！！！
+        segmentedDataSource = JXSegmentedTitleDataSource()
+        segmentedDataSource.titles = getTitles()
+        segmentedDataSource.isTitleColorGradientEnabled = true
+        segmentedView.dataSource = segmentedDataSource
+
+        //3、配置指示器
+        let indicator = JXSegmentedIndicatorLineView()
+        indicator.indicatorWidth = JXSegmentedViewAutomaticDimension
+        indicator.lineStyle = .lengthen
+        segmentedView.indicators = [indicator]
+
+        //4、配置JXSegmentedView的属性
+        view.addSubview(segmentedView)
+
+        //5、初始化JXSegmentedListContainerView
+        listContainerView = JXSegmentedListContainerView(dataSource: self)
+        view.addSubview(listContainerView)
+
+        //6、将listContainerView.scrollView和segmentedView.contentScrollView进行关联
+        segmentedView.listContainer = listContainerView
+
+        //布局子控件,
+        segmentedView.snp.makeConstraints { (make) in
+            //tab的宽度等于屏幕宽度
+            make.width.equalToSuperview()
+            //tab高度50
+            make.height.equalTo(50)
+            //tab的顶部,在安全区顶部
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
         }
-        listTableView.es.addPullToRefresh {
-            [unowned self] in
-            page = 1
-            requestData(isPull: true)
+        listContainerView.snp.makeConstraints { (mm) in
+            //可以滑动的容器,在tab的下面,宽度屏幕宽,底部在安全区的最下边
+            mm.top.equalTo(segmentedView.snp.bottom)
+            mm.width.equalToSuperview()
+            mm.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
         }
-        
-        listTableView.es.addInfiniteScrolling {
-            [unowned self] in
-            page+=1
-            requestData(isPull: false)
-            listTableView.es.stopLoadingMore()
-                /// 通过es_noticeNoMoreData()设置footer暂无数据状态
-            listTableView.es.noticeNoMoreData()
-        }
-    }
-   
-    func requestData(isPull:Bool) -> Void {
-        listArray = NSMutableArray()
-        let formatUrl:String = String(format: "https://api.apiopen.top/getWangYiNews?page=%ld&count=%ld", arguments: [page,count])
-        if isPull {
-            listArray .removeAllObjects()
-        }
-        AF.request(formatUrl).responseJSON{ [self] response in
-//            debugPrint("Response: \(response)")
-            switch response.result {
-                        case .success:
-                            let json = JSON(response.value!)
-                            let results = json["result"]
-                            for (_,subJson):(String,JSON) in results {
-//                                var newsModel:NewsInfoModel!
-                               let newsModel = NewsInfoModel(jsonData: subJson)
-                                listArray.add(newsModel)
-                            }
-                            endRefresh()
-                            listTableView.reloadData()
-                        case .failure:
-                            endRefresh()
-                            print("failure")
-                        }
-        }
+ }
+
+    @objc func reloadData() {
+        segmentedDataSource.titles = getTitles()
+        segmentedView.defaultSelectedIndex = 1
+        segmentedView.reloadData()
     }
 
-    func endRefresh() -> Void {
-        listTableView.es.stopPullToRefresh()
-        listTableView.es.stopPullToRefresh(ignoreDate: true, ignoreFooter: true)
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+    }
+
+    func getTitles() -> [String] {
+        let titles = ["网易", "腾讯","美图"]
+      
+        return titles
     }
 }
 
+extension HomeViewController: JXSegmentedListContainerViewDataSource {
+    func numberOfLists(in listContainerView: JXSegmentedListContainerView) -> Int {
+        //tab的总个数
+        return segmentedDataSource.dataSource.count
+    }
+
+    func listContainerView(_ listContainerView: JXSegmentedListContainerView, initListAt index: Int) -> JXSegmentedListContainerViewListDelegate {
+        //当切换的时候,加载不同的页面
+        if index == 0 {
+            return SinaNewsViewController()
+        }else if index == 1 {
+            return TencentNewsViewController()
+        }
+        return PhotosViewController()
+    }
+}

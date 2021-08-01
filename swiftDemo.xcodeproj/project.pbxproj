@@ -12,6 +12,11 @@
 		19A0C3AA8A53EEE3E7A4ECE0 /* Pods_swiftDemo_swiftDemoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 643959775711E4F3F3572A00 /* Pods_swiftDemo_swiftDemoUITests.framework */; };
 		709C8DD7D002425E4B09C824 /* Pods_swiftDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FF30665EF1FFC544A1DDAB8 /* Pods_swiftDemo.framework */; };
 		CAD6EB7BADA1EB6B5E5E484D /* Pods_swiftDemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B6A87D91706B33B2320F07C /* Pods_swiftDemoTests.framework */; };
+		DD0778AB26B6AA84008B6844 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0778AA26B6AA84008B6844 /* HomeViewController.swift */; };
+		DD0778AD26B6B72A008B6844 /* TencentNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0778AC26B6B72A008B6844 /* TencentNewsViewController.swift */; };
+		DD0778AF26B6CB60008B6844 /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0778AE26B6CB60008B6844 /* PhotosViewController.swift */; };
+		DD0778B226B6CCD5008B6844 /* BasicDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0778B126B6CCD5008B6844 /* BasicDefine.swift */; };
+		DD0778B426B6DA5D008B6844 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0778B326B6DA5D008B6844 /* PhotoCollectionViewCell.swift */; };
 		DD658C4626A2AE6700159F6B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD658C4526A2AE6700159F6B /* AppDelegate.swift */; };
 		DD658C4A26A2AE6700159F6B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD658C4926A2AE6700159F6B /* ContentView.swift */; };
 		DD658C4C26A2AE8200159F6B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD658C4B26A2AE8100159F6B /* Assets.xcassets */; };
@@ -19,7 +24,7 @@
 		DD658C5226A2AE8200159F6B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD658C5026A2AE8200159F6B /* LaunchScreen.storyboard */; };
 		DD658C5D26A2AE8300159F6B /* swiftDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD658C5C26A2AE8300159F6B /* swiftDemoTests.swift */; };
 		DD658C6826A2AE8300159F6B /* swiftDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD658C6726A2AE8300159F6B /* swiftDemoUITests.swift */; };
-		DD658C9D26A2B5FF00159F6B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD658C9C26A2B5FF00159F6B /* HomeViewController.swift */; };
+		DD658C9D26A2B5FF00159F6B /* SinaNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD658C9C26A2B5FF00159F6B /* SinaNewsViewController.swift */; };
 		DD658CA826A2B65F00159F6B /* MeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD658CA726A2B65F00159F6B /* MeViewController.swift */; };
 		DD658CB326A2B6D200159F6B /* FindViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD658CB226A2B6D200159F6B /* FindViewController.swift */; };
 		DD658CBB26A2B6E500159F6B /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD658CBA26A2B6E500159F6B /* MessageViewController.swift */; };
@@ -59,6 +64,11 @@
 		AA2512A134E037C4DD7FDC44 /* Pods-swiftDemo-swiftDemoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swiftDemo-swiftDemoUITests.debug.xcconfig"; path = "Target Support Files/Pods-swiftDemo-swiftDemoUITests/Pods-swiftDemo-swiftDemoUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		AAD53F1567C6BE1CF2375978 /* Pods-swiftDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swiftDemo.debug.xcconfig"; path = "Target Support Files/Pods-swiftDemo/Pods-swiftDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		D5376D5D2670CC119B85579C /* Pods-swiftDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swiftDemo.release.xcconfig"; path = "Target Support Files/Pods-swiftDemo/Pods-swiftDemo.release.xcconfig"; sourceTree = "<group>"; };
+		DD0778AA26B6AA84008B6844 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		DD0778AC26B6B72A008B6844 /* TencentNewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TencentNewsViewController.swift; sourceTree = "<group>"; };
+		DD0778AE26B6CB60008B6844 /* PhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = "<group>"; };
+		DD0778B126B6CCD5008B6844 /* BasicDefine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicDefine.swift; sourceTree = "<group>"; };
+		DD0778B326B6DA5D008B6844 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		DD658C4226A2AE6700159F6B /* swiftDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = swiftDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD658C4526A2AE6700159F6B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD658C4926A2AE6700159F6B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -72,7 +82,7 @@
 		DD658C6326A2AE8300159F6B /* swiftDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = swiftDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD658C6726A2AE8300159F6B /* swiftDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = swiftDemoUITests.swift; sourceTree = "<group>"; };
 		DD658C6926A2AE8300159F6B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DD658C9C26A2B5FF00159F6B /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		DD658C9C26A2B5FF00159F6B /* SinaNewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinaNewsViewController.swift; sourceTree = "<group>"; };
 		DD658CA726A2B65F00159F6B /* MeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeViewController.swift; sourceTree = "<group>"; };
 		DD658CB226A2B6D200159F6B /* FindViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindViewController.swift; sourceTree = "<group>"; };
 		DD658CBA26A2B6E500159F6B /* MessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
@@ -115,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				00842C2626B27C6F00C09762 /* NewsTableViewCell.swift */,
+				DD0778B326B6DA5D008B6844 /* PhotoCollectionViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -142,6 +153,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		DD0778B026B6CC9F008B6844 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				DD0778B126B6CCD5008B6844 /* BasicDefine.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		DD658C3926A2AE6600159F6B = {
 			isa = PBXGroup;
 			children = (
@@ -167,6 +186,7 @@
 		DD658C4426A2AE6700159F6B /* swiftDemo */ = {
 			isa = PBXGroup;
 			children = (
+				DD0778B026B6CC9F008B6844 /* Common */,
 				DD7D2A3426B30A4A009F562B /* WebView */,
 				DD7D2A3226B2F7E1009F562B /* README.md */,
 				DD658CC526A5C6B300159F6B /* Base */,
@@ -263,7 +283,10 @@
 		DD658C9926A2B5C500159F6B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				DD658C9C26A2B5FF00159F6B /* HomeViewController.swift */,
+				DD658C9C26A2B5FF00159F6B /* SinaNewsViewController.swift */,
+				DD0778AC26B6B72A008B6844 /* TencentNewsViewController.swift */,
+				DD0778AA26B6AA84008B6844 /* HomeViewController.swift */,
+				DD0778AE26B6CB60008B6844 /* PhotosViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -634,15 +657,20 @@
 				00842C2926B29E4700C09762 /* NewsInfoModel.swift in Sources */,
 				DD658CA826A2B65F00159F6B /* MeViewController.swift in Sources */,
 				DD658C4626A2AE6700159F6B /* AppDelegate.swift in Sources */,
+				DD0778AD26B6B72A008B6844 /* TencentNewsViewController.swift in Sources */,
+				DD0778B426B6DA5D008B6844 /* PhotoCollectionViewCell.swift in Sources */,
 				00842C2726B27C6F00C09762 /* NewsTableViewCell.swift in Sources */,
 				DD658C4A26A2AE6700159F6B /* ContentView.swift in Sources */,
 				DD658CC026A2B72100159F6B /* MainTabbar.swift in Sources */,
 				DD658CC826A5C6DB00159F6B /* BaseViewController.swift in Sources */,
-				DD658C9D26A2B5FF00159F6B /* HomeViewController.swift in Sources */,
+				DD658C9D26A2B5FF00159F6B /* SinaNewsViewController.swift in Sources */,
+				DD0778B226B6CCD5008B6844 /* BasicDefine.swift in Sources */,
+				DD0778AF26B6CB60008B6844 /* PhotosViewController.swift in Sources */,
 				DD658CB326A2B6D200159F6B /* FindViewController.swift in Sources */,
 				DD658CBB26A2B6E500159F6B /* MessageViewController.swift in Sources */,
 				DD7D2A3626B30A7E009F562B /* WebViewViewController.swift in Sources */,
 				DD658CD026A5CEA200159F6B /* MainViewController.swift in Sources */,
+				DD0778AB26B6AA84008B6844 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

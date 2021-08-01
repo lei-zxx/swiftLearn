@@ -14,8 +14,9 @@ target 'swiftDemo' do
   pod 'SnapKit', '~> 5.0.0' #加载网络图片
   pod 'RxSwift', '~> 5'
   pod 'RAMAnimatedTabBarController'
-  pod "ESPullToRefresh"
   pod 'Hue' #颜色
+  pod 'MJRefresh'
+  pod 'JXSegmentedView'
 
   # Pods for swiftDemo
 
@@ -24,7 +25,6 @@ target 'swiftDemo' do
     # Pods for testing
     pod 'RxBlocking', '~> 5'
     pod 'RxTest', '~> 5'
-    pod 'JXSegmentedView'
   end
 
   target 'swiftDemoUITests' do
