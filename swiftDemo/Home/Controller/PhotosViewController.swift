@@ -86,11 +86,11 @@ class PhotosViewController: UIViewController, UICollectionViewDelegate,UICollect
     }
     
     func requestData(isPull:Bool) -> Void {
-        let formatUrl:String = String(format: "https://api.apiopen.top/getImages?page=%ld&count=%ld", arguments: [page,count])
+        let formatUrl:String = String(format: "%@?page=%ld&count=%ld", arguments: [RADOM_PIC_URL,page,count])
         if isPull {
             listArray .removeAllObjects()
         }
-        AF.request("https://api.apiopen.top/getImages").responseJSON{ [self] response in
+        AF.request(RADOM_PIC_URL).responseJSON{ [self] response in
 //            debugPrint("Response: \(response)")
             switch response.result {
                         case .success:

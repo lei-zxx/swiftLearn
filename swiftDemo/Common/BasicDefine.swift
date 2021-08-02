@@ -127,7 +127,7 @@ let kScreenWidth = UIScreen.main.bounds.size.width;
 /// 导航栏高度
 let kNavBarHeight = 44.0;
 /// 状态栏高度
-let kStatusBarHeight = 20.0;
+let kStatusBarHeight = UIApplication.shared.statusBarFrame.height;
 /// Tab栏高度
 let kTabBarHeight = 49.0;
 

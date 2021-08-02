@@ -34,7 +34,7 @@ class PhotoCollectionViewCell: UICollectionViewCell {
                     print("Task done for: \(value.source.url?.absoluteString ?? "")")
                 case .failure(let error):
                     let randomNumber:Int = Int(arc4random() % 100) + 1
-                    let formatUrl:String = String(format: "http://img.btu.pp.ua/random/api.php?%ld", arguments: [randomNumber])
+                    let formatUrl:String = String(format: "%@?%ld", arguments: [MEI_TU_URL,randomNumber])
                     print(formatUrl)
                     let pUrl = URL(string: formatUrl)
                     self.pictureImageView.kf.setImage(with:pUrl?.absoluteURL)

@@ -89,7 +89,7 @@ class SinaNewsViewController: BaseViewController, UITableViewDelegate, UITableVi
     }
    
     func requestData(isPull:Bool) -> Void {
-        let formatUrl:String = String(format: "https://api.apiopen.top/getWangYiNews?page=%ld&count=%ld", arguments: [page,count])
+        let formatUrl:String = String(format: "%@?page=%ld&count=%ld", arguments: [WANG_YI_NEWS_URL,page,count])
         if isPull {
             listArray .removeAllObjects()
         }
